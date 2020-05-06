@@ -32,11 +32,13 @@ import calendar
 from datetime import datetime
 
 #month = datetime.strptime(sys.argv[1], '%m')
+try:
+    month = sys.argv[1]
 
-month = sys.argv[1]
+    year = sys.argv[2] if len(sys.argv) == 3 else datetime.today().year
 
-year = sys.argv[2] if len(sys.argv) == 3 else datetime.today().year
-
-print(month, year)
-
-print(calendar.TextCalendar().formatmonth(int(year), int(month)))
+    print(calendar.TextCalendar().formatmonth(int(year), int(month)))
+except:
+    print('''
+          Invalid Input. Please Enter a Month and (optional) Year in numerical format
+          ''')

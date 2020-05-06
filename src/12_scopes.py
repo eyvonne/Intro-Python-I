@@ -22,8 +22,12 @@ def outer():
     y = 120
 
     def inner():
-        nonlocal y
         y = 999
+
+        def very_inner():
+            nonlocal y
+            print(y)
+        very_inner()
 
     inner()
 
